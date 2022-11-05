@@ -7,8 +7,12 @@ import { DescriptionList } from '@/components/DescriptionList';
 export function SearchResults({
   searchParams,
 }: {
-  searchParams: { termId: string; campusCode: string; q: string };
+  searchParams?: { termId: string; campusCode: string; q: string };
 }) {
+  if (!searchParams || !searchParams.q) {
+    return null;
+  }
+
   const courses = parseCourses(searchParams.q);
 
   return (

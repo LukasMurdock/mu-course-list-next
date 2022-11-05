@@ -1,7 +1,9 @@
 import { fetchSelectableTerms } from '@/lib/ws.miamioh.edu/wrapper';
+import { redirect } from 'next/navigation';
 import { SearchInput } from '@/components/search/SearchInput';
 import { SearchResults } from '@/components/search/SearchResults';
 import { SearchSettings } from '@/components/search/SearchSettings';
+import UseSearchParams from '@/components/search/UseSearchParams';
 
 // This is an async Server Component
 export default async function Page({ searchParams }: { searchParams: any }) {
@@ -15,9 +17,10 @@ export default async function Page({ searchParams }: { searchParams: any }) {
     if (!currentTerm) throw new Error('No current term found');
     searchParams.termId = currentTerm.termId;
     // Would like to redirect, but redirect seems broken at the moment
+    // redirect(`/?termId=${currentTerm.termId}`);
   }
 
-  // Set default campusCode
+  //   // Set default campusCode
   if (!campusCode || typeof campusCode !== 'string') {
     searchParams.campusCode = 'O';
     // Would like to redirect, but redirect seems broken at the moment
@@ -30,8 +33,9 @@ export default async function Page({ searchParams }: { searchParams: any }) {
         <form method="get">
           <SearchInput searchParams={searchParams} />
         </form>
-        {searchParams.q ? <SearchResults searchParams={searchParams} /> : null}
+        <SearchResults searchParams={searchParams} />
       </div>
+      <UseSearchParams />
     </div>
   );
 }
