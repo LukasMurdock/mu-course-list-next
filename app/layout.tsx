@@ -9,10 +9,13 @@ export default function RootLayout({
   return (
     <html>
       <head>
+        <meta charSet="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>MU Course List</title>
       </head>
-      <body>
-        <nav className="m-auto flex max-w-prose justify-between py-4">
+      <body className="p-4">
+        <nav className="m-auto flex max-w-prose justify-between pb-4">
           <h1 className="font-bold">
             <Link href="/">MU Course List</Link>
           </h1>
