@@ -13,9 +13,10 @@ export default async function Page({ searchParams }: { searchParams: any }) {
 
   // Set default termId
   if (!termId || typeof termId !== 'string') {
-    const currentTerm = selectableTerms.find((term) => term.current);
-    if (!currentTerm) throw new Error('No current term found');
-    searchParams.termId = currentTerm.termId;
+    const nextTerm =
+      selectableTerms[selectableTerms.findIndex((term) => term.current) - 1];
+    if (!nextTerm) throw new Error('No current term found');
+    searchParams.termId = nextTerm.termId;
     // Would like to redirect, but redirect seems broken at the moment
     // redirect(`/?termId=${currentTerm.termId}`);
   }

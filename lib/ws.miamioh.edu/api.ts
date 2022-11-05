@@ -95,6 +95,17 @@ export async function getCurrentAcademicTerm() {
   };
 }
 
+export async function getNextAcademicTerm() {
+  const response = await fetch(
+    'https://ws.miamioh.edu/api/academic/banner/v2/academicTerms/next.json',
+  );
+  const data = await response.json();
+
+  return data as {
+    data: ApiTerm;
+  };
+}
+
 // - Year `2023`
 // - Term `20`
 // - Campus Code `O`

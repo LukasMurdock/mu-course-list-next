@@ -4,7 +4,6 @@ import { Menu as HeadlessMenu, Transition } from '@headlessui/react';
 import { clsx } from 'clsx';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 
 type Navigation = {
   href: string;
