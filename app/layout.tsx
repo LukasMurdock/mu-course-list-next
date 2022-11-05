@@ -20,7 +20,18 @@ export default function RootLayout({
             <Link href="/">MU Course List</Link>
           </h1>
         </nav>
-        {children}
+        <main>{children}</main>
+        <footer className="m-auto flex max-w-prose justify-between pt-20 pb-4 text-sm font-medium text-gray-500">
+          <p>
+            Made by{' '}
+            <a
+              href="https://lukasmurdock.com/"
+              className="text-black underline"
+            >
+              Lukas Murdock
+            </a>
+          </p>
+        </footer>
       </body>
     </html>
   );
